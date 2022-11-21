@@ -1,5 +1,7 @@
 import React from "react";
 import NavigationComponent from "./NavigationComponent";
+import '../styles/HeaderComponent.css';
+import logo from '../images/logo.png';
 
 let left_side_menu = [
     {   
@@ -28,9 +30,6 @@ let right_side_menu = [
 ];
 
 const HeaderComponent = () => {
-
-    
-
     return (
         <div className="header">
             <div className="shell">
@@ -38,7 +37,7 @@ const HeaderComponent = () => {
                     <NavigationComponent nav_items={left_side_menu} />
 
                     <div className="header__logo">
-                        <img src="" alt="Main menu logo"></img>
+                        <img src={logo} alt="Main menu logo"></img>
                     </div>
 
                     <NavigationComponent nav_items={right_side_menu} />

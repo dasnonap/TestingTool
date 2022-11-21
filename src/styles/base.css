@@ -1,0 +1,55 @@
+/* Base Styles */
+h1,
+.h1{
+    font-size: 48px;
+}
+
+h2,
+.h2{
+    font-size: 40px;
+}
+
+h3,
+.h3{
+    font-size: 32px;
+}
+
+h4,
+.h4{
+    font-size: 28px;
+}
+
+h5,
+.h5{
+    font-size: 20px;
+}
+
+h6,
+.h6{
+    font-size: 16px;
+}
+
+p {
+    font-size: 14px;
+    color: var(--black);
+}
+
+a{
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--black);
+}
+
+/* Variables */
+:root{
+    --dark-gray: #989c99;
+    --light-gray: #d4d6d5;
+    --black: #000000;
+    --white: #ffffff;
+    --purple-gray: #f0ebef;
+}  
+
+/* Transitions */
+:root{
+    --t-duration: .3s;
+}

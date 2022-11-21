@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/NavigationComponent.css';
 
 const NavigationComponent = ( props ) => {
     let nav_items = props.nav_items;
