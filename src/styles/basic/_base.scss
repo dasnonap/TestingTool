@@ -31,25 +31,11 @@ h6,
 
 p {
     font-size: 14px;
-    color: var(--black);
+    color: $c-black;
 }
 
 a{
     text-decoration: none;
     font-size: 14px;
-    color: var(--black);
-}
-
-/* Variables */
-:root{
-    --dark-gray: #989c99;
-    --light-gray: #d4d6d5;
-    --black: #000000;
-    --white: #ffffff;
-    --purple-gray: #f0ebef;
-}  
-
-/* Transitions */
-:root{
-    --t-duration: .3s;
+    color: $c-black;
 }

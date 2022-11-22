@@ -1,6 +1,6 @@
 import React from "react";
 import NavigationComponent from "./NavigationComponent";
-import '../styles/HeaderComponent.css';
+// import '../styles/HeaderComponent.css';
 import logo from '../images/logo.png';
 
 let left_side_menu = [

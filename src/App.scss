@@ -1,0 +1,10 @@
+// Load Basic Styles
+@import './styles/basic/_variables.scss';
+@import './styles/basic/_base.scss';
+@import './styles/basic/_reset.scss';
+
+// Load Components
+@import './styles/components/_header.scss';
+@import './styles/components/_nav.scss';
+@import './styles/components/_shell.scss';
+
