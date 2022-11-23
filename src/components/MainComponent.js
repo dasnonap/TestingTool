@@ -1,13 +1,13 @@
 import React from "react";
 import HeaderComponent from './HeaderComponent';
-// import '../styles/reset.css';
-// import '../styles/base.css';
-// import '../styles/shell.css';
+import FooterComponent from "./FooterComponent";
 
 const MainComponent = () => {
     return (
         <div className="main">
             <HeaderComponent/>
+
+            <FooterComponent/>
         </div>
     );
 };

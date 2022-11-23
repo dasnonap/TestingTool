@@ -1,20 +1,16 @@
-/* Header */
-.header{
+// Footer
+.footer{
+    background-color: $c-purple-gray;
     padding: 30px;
-    background-color: $c-light-gray;
 
-    .header__inner{
+    .footer__inner{
         display: flex;
         flex-direction: row;
-        padding: 16px 25px;
-        background-color: $c-purple-gray;
         justify-content: space-between;
-        align-items: center;
-        border: 1px solid transparent;
-        border-radius: 5px;
+        padding: 16px 25px;
     }
 
-    .header__logo{
+    .footer__logo{
         width: 160px;
         height: 100%;
         display: block;
@@ -23,5 +19,9 @@
             width: 100%;
             height: 100%;
         }
+    }
+
+    .footer__inner .nav-menu .nav{
+        flex-direction: column;
     }
 }
