@@ -1,6 +1,7 @@
 import React from "react";
 import logo from '../images/logo.png';
-import NavigationComponent from "./NavigationComponent";
+import NavigationComponent from "./Navigation";
+import Shell from './UI/Shell';
 
 let footer_menu_items = [
     {   
@@ -25,15 +26,17 @@ let footer_menu_items = [
     }
 ];
 
-const FooterComponent = () => {
+const Footer = () => {
     return (
         <div className="footer">
-            <div className="shell">
+            <Shell>
                 <div className="footer__inner">
                     <div className="footer__cols">
                         <div className="footer__col">
                             <div className="footer__logo">
-                                <img src={logo} alt="Footer menu logo"></img>
+                                <a href="/" className="img">
+                                    <img src={logo} alt="Main menu logo"></img>
+                                </a>
                             </div>
                         </div>
 
@@ -48,9 +51,9 @@ const FooterComponent = () => {
                         Made by Ivan Mihov
                     </div>
                 </div>
-            </div>
+            </Shell>
         </div>
     );
 };
 
-export default FooterComponent;
+export default Footer;

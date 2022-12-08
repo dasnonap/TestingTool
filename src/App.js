@@ -1,9 +1,9 @@
 import './App.scss';
-import MainComponent from './components/MainComponent';
+import Main from './components/Main';
 
 function App() {
   return (
-    <MainComponent />
+    <Main />
   );
 }
 

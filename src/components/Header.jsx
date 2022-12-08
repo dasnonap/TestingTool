@@ -1,5 +1,5 @@
 import React from "react";
-import NavigationComponent from "./NavigationComponent";
+import NavigationComponent from "./Navigation";
 import logo from '../images/logo.png';
 
 let left_side_menu = [
@@ -28,7 +28,7 @@ let right_side_menu = [
     }
 ];
 
-const HeaderComponent = () => {
+const Header = () => {
     return (
         <div className="header">
             <div className="shell">
@@ -36,7 +36,9 @@ const HeaderComponent = () => {
                     <NavigationComponent nav_items={left_side_menu} />
 
                     <div className="header__logo">
-                        <img src={logo} alt="Main menu logo"></img>
+                        <a href="/" className="img">
+                            <img src={logo} alt="Main menu logo"></img>
+                        </a>
                     </div>
 
                     <NavigationComponent nav_items={right_side_menu} />
@@ -47,4 +49,4 @@ const HeaderComponent = () => {
     );
 };
 
-export default HeaderComponent;
+export default Header;

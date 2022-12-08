@@ -8,6 +8,13 @@
         flex-direction: row;
         justify-content: space-between;
         padding: 16px 25px;
+        align-items: flex-end;
+    }
+
+    .footer__cols{
+        display: flex;
+        flex-direction: column;
+        
     }
 
     .footer__logo{

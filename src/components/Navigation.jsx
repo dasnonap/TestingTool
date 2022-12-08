@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavigationComponent = ( props ) => {
+const Navigation = ( props ) => {
     let nav_items = props.nav_items;
 
     if( ! nav_items.length ) {
@@ -24,4 +24,4 @@ const NavigationComponent = ( props ) => {
     );
 };
 
-export default NavigationComponent;
+export default Navigation;
