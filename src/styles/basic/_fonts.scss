@@ -1,4 +1,5 @@
 // Fonts
+// Roboto
 @font-face {
     font-family: "Roboto";
     src: url("../fonts/Roboto.woff") format('woff'),
@@ -27,6 +28,23 @@
     font-family: "Roboto";
     src: url("../fonts/Roboto-Bold.woff") format('woff'),
         url("../fonts/Roboto-Bold.woff2") format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+// FiraCode
+@font-face {
+    font-family: "FiraCode";
+    src: url("../fonts/FiraCode-Medium.woff") format('woff'),
+        url("../fonts/FiraCode-Medium.woff2") format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FiraCode";
+    src: url("../fonts/FiraCode-Bold.woff") format('woff'),
+        url("../fonts/FiraCode-Bold.woff2") format('woff2');
     font-weight: bold;
     font-style: normal;
 }

@@ -1,12 +1,13 @@
 // Load Basic Styles and Variables
-@import './styles/basic/_variables.scss';
-@import './styles/basic/_base.scss';
-@import './styles/basic/_reset.scss';
+@import './styles/basic/variables';
+@import './styles/basic/reset';
+@import './styles/basic/base';
 
 // Load Components
-@import './styles/components/_header.scss';
-@import './styles/components/_main.scss';
-@import './styles/components/_nav.scss';
-@import './styles/components/_shell.scss';
-@import './styles/components/_footer.scss';
-
+@import './styles/components/shell';
+@import './styles/components/main';
+@import './styles/components/btn';
+@import './styles/components/header';
+@import './styles/components/nav';
+@import './styles/components/footer';
+@import './styles/components/hero';

@@ -2,6 +2,8 @@ import React from "react";
 import Header from "../Sections/Header";
 import Footer from '../Sections/Footer';
 import Wrapper from '../UI/Wrapper';
+import Hero from "../Sections/Hero";
+import Steps from "../Sections/Steps";
 
 let left_side_menu = [
     {   
@@ -51,6 +53,9 @@ const HomeLayout = props => {
                 leftMenu={left_side_menu} 
                 rightMenu={right_side_menu}
             />
+            <Hero />
+
+            <Steps />
 
             <Footer
                 footerMenu={footer_menu_items}

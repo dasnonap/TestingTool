@@ -1,0 +1,70 @@
+// Hero
+.hero{
+    text-align: left;
+    position: relative;
+    height: 600px;
+    margin-bottom: 50px;
+    color: $c-white;
+    overflow: hidden;
+    font-family: $ff-firacode;
+
+    .hero__inner{
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        height: 100%;
+        padding-top: 200px;
+    }
+
+    .hero__title{
+        margin-bottom: 20px;
+        background-color: rgba( $c-light-gray, .3);
+        padding: 12px 24px;
+        border-radius: 4px;
+
+        h1{
+            font-weight: bold;
+        }
+    }
+
+    .hero__content{
+        margin-bottom: 20px;
+        background-color: rgba( $c-light-gray, .3);
+        padding: 12px 24px;
+        border-radius: 4px; 
+
+        p{
+            color: $c-white;
+            font-size: 16px;
+            
+            + p{
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .hero__actions{
+        display: flex;
+        flex-direction: row;
+        padding: 0 -20px;
+        align-items: center;
+        font-family: $ff-roboto;
+
+        .btn{
+            margin-right: 20px;
+        }
+
+        p{
+            margin-right: 20px;
+            color: $c-white;
+            font-weight: bold;
+        }
+    }
+
+    .hero__background{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}

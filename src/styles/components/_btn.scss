@@ -1,0 +1,18 @@
+// Btn
+.btn{
+    padding:10px 14px;
+    background-color: $c-dark-blue;
+    color: $c-white;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 
+        background-color $t-duration ease, 
+        color $t-duration ease, 
+        border-radius $t-duration ease;
+
+    &:hover{
+        background-color: $c-white;
+        color: $c-dark-blue;
+        border-radius: 10px;
+    }
+}
