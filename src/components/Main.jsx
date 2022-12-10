@@ -1,13 +1,12 @@
 import React from "react";
-import Header from './Header';
-import Footer from "./Footer";
+// import Login from "./Layouts/Login";
+import Home from  './Layouts/Home';
 
 const Main = () => {
     return (
         <div className="main">
-            <Header/>
-
-            <Footer/>
+           <Home />
+           {/* <Login /> */}
         </div>
     );
 };

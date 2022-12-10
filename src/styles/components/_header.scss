@@ -2,7 +2,8 @@
 .header{
     padding: 30px;
     background-color: $c-light-gray;
-
+    font-family: $ff-roboto;
+    
     .header__inner{
         display: flex;
         flex-direction: row;

@@ -1,32 +1,9 @@
 import React from "react";
-import logo from '../images/logo.png';
-import NavigationComponent from "./Navigation";
-import Shell from './UI/Shell';
+import logo from '../../images/logo.png';
+import Navigation from "./Navigation";
+import Shell from '../UI/Shell';
 
-let footer_menu_items = [
-    {   
-        'id'    : '1',
-        'title' : 'Home',
-        'url'   : '#home',
-    },
-    {
-        'id'    : '2',
-        'title' : 'About',
-        'url'   : '#about',
-    },
-    {   
-        'id'    : '3',
-        'title' : 'Sign In',
-        'url'   : 'sign_in',
-    },
-    {   
-        'id'    : '4',
-        'title' : 'Sign Up',
-        'url'   : 'sign_up'
-    }
-];
-
-const Footer = () => {
+const Footer = (props) => {
     return (
         <div className="footer">
             <Shell>
@@ -42,7 +19,9 @@ const Footer = () => {
 
                         <div className="footer__col">
                             <div className="footer__menu">
-                                <NavigationComponent nav_items={footer_menu_items}/>
+                                { props.footerMenu ? 
+                                    <Navigation nav_items={props.footerMenu}/>                                
+                                : ''}
                             </div>
                         </div>
                     </div>   

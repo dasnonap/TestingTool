@@ -2,7 +2,8 @@
 .footer{
     background-color: $c-purple-gray;
     padding: 30px;
-
+    font-family: $ff-roboto;
+    
     .footer__inner{
         display: flex;
         flex-direction: row;

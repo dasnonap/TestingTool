@@ -12,7 +12,7 @@ const Navigation = ( props ) => {
             <ul className="nav">
                 { nav_items.map(( item ) => {
                     return (
-                        <li className="nav__item" key={ item.id }>
+                        <li className="nav__item" key={ Math.random().toString() }>
                             <a href={ item.url }>
                                 { item.title }
                             </a>
