@@ -1,0 +1,24 @@
+// Register
+.register{
+    margin: 100px auto;
+    text-align: center;
+    background-color: $c-purple-gray;
+    padding: 60px 15px;
+    border-radius: 10px;
+    
+    .register__head{
+        margin-bottom: 20px;
+    }
+
+    .register__inner{
+        margin-bottom: 20px;    
+    }
+    
+    .register__footer{
+        margin-bottom: 20px;
+
+        a{
+            color: $c-dark-gray;
+        }
+    }
+}

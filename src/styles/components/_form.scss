@@ -1,0 +1,40 @@
+// Form component
+.form{
+    padding: 20px 0px;
+
+    .form__fields{
+        display: flex;
+        flex-direction: column;
+        margin: -12px 0;
+    }
+
+    .form__row {
+        padding: 12px 0;
+    }
+
+    .form__actions{
+        margin-top: 16px;
+    }
+
+    .form__field{
+        input{
+            padding: 8px 12px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+    }
+
+    button{
+        font-size: 14px;
+        border: 1px solid $c-white;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: background $t-duration ease;
+
+        &:hover{
+            background-color: $c-white;
+            cursor: pointer;
+        }
+    }
+}

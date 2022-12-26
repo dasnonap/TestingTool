@@ -2,16 +2,22 @@ import React from "react";
 import Shell from "../UI/Shell";
 import Form from "./Form";
 
-// NOTES:
 // Create new file for form fields creations
 // Create with Context API in Varna
 const formFields = [
     {   
         type : 'email',
-        id : 'email',
+        id: 'email',
         validate : true,
         validationMessage: 'Please enter a valid email.',
         placeholder: 'Email Address', // maybe label to do style fixes
+    },
+    {
+        type : 'text',
+        id: 'username',
+        validate : true,
+        validationMessage : 'Please enter a valid username',
+        placeholder : 'Username',  
     },
     {
         type : 'password',
@@ -19,52 +25,58 @@ const formFields = [
         validate : true,
         validationMessage: 'Please enter a valid password.',
         placeholder: 'Password',
+    },
+    {
+        type : 'password',
+        id : 'password2',
+        validate : true,
+        validationMessage: 'Please enter a valid password.',
+        placeholder: 'Confirm Password',
     }
 ];
 
-// Creates Login form component
-const Login = (props) => {
+const RegisterSection = (props) =>{
 
-    const handleLoginFormSubmit = (event) => {
+    const handleRegisterSubmit = (event) => {
         // Handle form submmission
         event.preventDefault();
-
+        
         console.log(event);
     };
 
     return(
-        <section className="login">
+        <section className="register">
             <Shell>
-                <div className="login__head">
+                <div className="register__head">
                     <h1>
-                        Login
+                        Create an Account
                     </h1>
                 </div>
 
-                <div className="login__inner">
-
-                    <div className="login__message">
+                <div className="register__inner">
+                    {/* Used for displaying errors */}
+                    <div className="register__message">
                         <div className="message">
                             <p></p>
                         </div>
                     </div>
 
                     <Form 
-                        className="form form--login"
+                        className="form form--register"
                         method="POST"
                         action="?" 
-                        onSubmit={handleLoginFormSubmit}
+                        onSubmit={handleRegisterSubmit}
                         fields={formFields}
-                        submitLabel='Log In'
+                        submitLabel='Create an Account'
                     />
                 </div>
 
-                <div className="login__footer">
-                    <p>You do not have an account? Sign up <a href="/sign-up">here</a></p>
+                <div className="register__footer">
+                    <p>Already have an account? Sign in <a href="/sign-in">here</a></p>
                 </div>
             </Shell>
         </section>
     );
-}
+};
 
-export default Login;
+export default RegisterSection;

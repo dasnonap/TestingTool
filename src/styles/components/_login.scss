@@ -1,0 +1,24 @@
+// Login Section
+.login{
+    margin: 100px auto;
+    text-align: center;
+    background-color: $c-purple-gray;
+    padding: 60px 15px;
+    border-radius: 10px;
+    
+    .login__head{
+        margin-bottom: 20px;
+    }
+
+    .login__inner{
+        margin-bottom: 20px;    
+    }
+    
+    .login__footer{
+        margin-bottom: 20px;
+
+        a{
+            color: $c-dark-gray;
+        }
+    }
+}

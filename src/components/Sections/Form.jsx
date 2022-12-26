@@ -18,6 +18,8 @@ const Form = (props) => {
                             <div className="form__row" key={Math.random().toString()}>
                                 <div className="form__field">
                                     <FormField 
+                                        name={item.id}
+                                        id={item.id}
                                         type={item.type}
                                         validation={item.validation}
                                         validationMessage={item.validationMessage}
@@ -33,7 +35,9 @@ const Form = (props) => {
 
             <div className="form__actions">
                 <button type="submit">
-                    Log In
+                    { props.submitLabel ?
+                        props.submitLabel
+                    : '' }
                 </button>
             </div>
         </form>
