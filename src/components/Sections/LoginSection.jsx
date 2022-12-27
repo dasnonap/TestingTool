@@ -37,7 +37,7 @@ const Login = (props) => {
             <Shell>
                 <div className="login__head">
                     <h1>
-                        Login
+                        Sign In
                     </h1>
                 </div>
 
@@ -55,7 +55,7 @@ const Login = (props) => {
                         action="?" 
                         onSubmit={handleLoginFormSubmit}
                         fields={formFields}
-                        submitLabel='Log In'
+                        submitLabel='Sign In'
                     />
                 </div>
 
