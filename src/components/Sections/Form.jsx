@@ -21,7 +21,7 @@ const Form = (props) => {
                                         name={item.id}
                                         id={item.id}
                                         type={item.type}
-                                        validation={item.validation}
+                                        validation={item.validate}
                                         validationMessage={item.validationMessage}
                                         placeholder={item.placeholder}
                                     />

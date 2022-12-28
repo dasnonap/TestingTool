@@ -55,4 +55,18 @@ class AuthService {
     static getCurrentUser = () =>{
         return JSON.parse(localStorage.getItem("user"));
     }
+
+    /**
+     * Get logged users Access token 
+     * 
+     */
+    static authHeader = () => {
+        const user = this.getCurrentUser();
+
+        if( ! user.length ) return;
+
+        return {
+            'x-access-token': user.accessToken
+        };
+    }
 }

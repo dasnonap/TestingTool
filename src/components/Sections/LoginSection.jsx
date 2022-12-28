@@ -44,7 +44,7 @@ const Login = (props) => {
                 <div className="login__inner">
 
                     <div className="login__message">
-                        <div className="message">
+                        <div className="error-message">
                             <p></p>
                         </div>
                     </div>

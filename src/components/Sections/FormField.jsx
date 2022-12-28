@@ -7,7 +7,7 @@ const FormField = (props) => {
             name={props.id || ''}
             type={ props.type || 'text' } 
             placeholder={props.placeholder || '' }
-            data-validate={props.validate || 'false'}
+            data-validate={props.validation}
             data-message={props.validationMessage || '' }
             />
     );

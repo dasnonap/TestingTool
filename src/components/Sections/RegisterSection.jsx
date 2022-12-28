@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Shell from "../UI/Shell";
 import Form from "./Form";
+import User from "../../models/User";
 
 // Create new file for form fields creations
 // Create with Context API in Varna
@@ -36,12 +37,37 @@ const formFields = [
 ];
 
 const RegisterSection = (props) =>{
+    const [errorState, setErrorState] = useState('');
 
+    // Handle form submmission
     const handleRegisterSubmit = (event) => {
-        // Handle form submmission
         event.preventDefault();
+
+        const $form = event.target,
+              $inputs = $form.querySelectorAll('input[data-validate="true"]');
+        let data = {};
+
+        $inputs.forEach( async ( input, index ) => {
+            let value = input.value;
+
+            if ( ! value.length ){
+                setErrorState( input.dataset.message );
+            } else {
+                data[input.id] = value; 
+            }
+        });
+
+        if( data.password !== data.password2 ){
+            setErrorState( 'The passwords does not match.' );
+        } else {
+            delete data.password2;
+            const user = new User( data.username, data.password, data.email );
+            console.log(user);
+        }
+
         
-        console.log(event);
+
+       
     };
 
     return(
@@ -55,11 +81,15 @@ const RegisterSection = (props) =>{
 
                 <div className="register__inner">
                     {/* Used for displaying errors */}
-                    <div className="register__message">
-                        <div className="message">
-                            <p></p>
+                    { errorState ?
+                        <div className="register__message">
+                            <div className="error-message">
+                                <p>
+                                    {errorState}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    : '' }
 
                     <Form 
                         className="form form--register"
