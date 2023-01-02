@@ -1,0 +1,74 @@
+// Steps
+.steps{
+    margin: 40px 0;
+    
+    .steps__head{
+        text-align: center;
+        margin-bottom: 40px;
+
+        h2{
+            font-weight: bold;
+        }
+    }
+
+    .steps__items{
+        display: flex;
+        flex-direction: column;
+        margin: -50px 0;
+        
+        .steps__item{
+            position: relative;
+            margin-top: 50px;
+
+            // Start icon
+            &:nth-child(1){
+                &:after{
+                    content:'';
+                    position: absolute;
+                    top: -1px;
+                    left: -11px;
+                    width: 30px;    
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color: $c-blue;
+                }
+            }
+
+            // Connecting elements
+            &:before{
+                content: "";
+                position: absolute;
+                bottom: -50px;
+                width: 8px;
+                height: 50px;
+                background-color: $c-dark-blue;
+            }
+
+            &:nth-child(odd){
+                &:before{
+                    right: 0;
+                }
+            }
+
+            &:nth-child(even){
+                &:before{
+                    left: 0;
+                }
+            }
+            
+            // Last item
+            &:last-child{
+                &:before{
+                    content:'';
+                    position: absolute;
+                    bottom: -11px;
+                    right: -1px;
+                    width: 30px;    
+                    height: 30px;
+                    border-radius: 50%;
+                    background-color: $c-blue;
+                }
+            }
+        }
+    }
+}

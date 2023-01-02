@@ -1,0 +1,56 @@
+// Step
+.step{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-left: 8px solid $c-dark-blue;
+    border-bottom: 8px solid $c-dark-blue;
+    border-bottom-left-radius: 15px;
+   
+    .step__inner{
+        display: flex;
+        flex-direction: column;
+        width: 46%;
+        padding: 200px 60px;
+        justify-content: space-between;
+    }
+
+    .step__content{
+        background-color: $c-blue;
+        padding: 20px 30px;
+        color: $c-light-gray;
+        border-radius: 4px;
+    }
+
+    .step__title{
+        margin-bottom: 20px;
+        
+        h3{
+            font-weight: 700;
+        }
+    }
+    .step__text{
+        margin-bottom: 20px;
+
+        p{
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: $c-light-gray;
+        }
+    }
+}
+
+// Step -- Reversed
+.step--reversed{
+    flex-direction: row-reverse;
+    border: unset;
+    border-radius: unset;
+    border-right: 8px solid $c-dark-blue;
+    border-bottom: 8px solid $c-dark-blue;
+    border-bottom-right-radius: 15px;
+
+    .step__inner{
+        text-align: right;
+    }
+}
