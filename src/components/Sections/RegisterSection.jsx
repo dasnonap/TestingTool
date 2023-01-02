@@ -41,7 +41,7 @@ const RegisterSection = (props) =>{
     const [errorState, setErrorState] = useState('');
 
     // Handle form submmission
-    const handleRegisterSubmit = (event) => {
+    const handleRegisterSubmit = async (event) => {
         event.preventDefault();
 
         const $form = event.target,
@@ -63,9 +63,18 @@ const RegisterSection = (props) =>{
         } else {
             delete data.password2;
             const user = new User( data.username, data.password, data.email );
+            
             // send request
+            try {
+                const response = await AuthService.register(user);
 
-            AuthService.register(user);
+                if( response.data && response.data.token.length > 0 ){
+                    localStorage.setItem( 'user', JSON.stringify( response.data.token ) );
+                }    
+            } catch (error) {
+                if( error.response.status == 400 )
+                    setErrorState( error.response.data.error );
+            }
         }
     };
 

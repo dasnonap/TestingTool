@@ -11,9 +11,9 @@ export default class AuthService {
      * Register user 
      *
      * @param {User} Instance of the new User added
-     * @return {booleam} Returns the result of the operation
+     * @return {boolea} Returns the result of the operation
      */
-    static register = user => {
+    static async register( user ) {
         if( ! user instanceof User ) return;
         
         if( ! user.getEmail() || ! user.getPassword() || ! user.getUsername() ) return;
@@ -27,7 +27,7 @@ export default class AuthService {
         return axios.post( 
             this.auth_url + 'signup',
             {
-                user: user.createJsonObject()
+                user: await user.createJsonObject()
             },
         config );
     }

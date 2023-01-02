@@ -31,19 +31,19 @@ export default class User {
         return this.username;
     }
 
-    getPassword = () => {
-        return this.password;
-    }
-
     getEmail = () => {
         return this.email;
+    }  
+
+    getPassword = () => {
+        return this.password;
     }
 
     getResetToken = () => {
         return this.reset_token;
     }
 
-    createJsonObject = () => {
+    async createJsonObject () {
         return {
             username: this.username,
             password: this.password,
