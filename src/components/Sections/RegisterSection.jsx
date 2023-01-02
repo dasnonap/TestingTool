@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Shell from "../UI/Shell";
 import Form from "./Form";
 import User from "../../models/User";
+import AuthService from "../../services/auth.service";
 
 // Create new file for form fields creations
 // Create with Context API in Varna
@@ -62,12 +63,10 @@ const RegisterSection = (props) =>{
         } else {
             delete data.password2;
             const user = new User( data.username, data.password, data.email );
-            console.log(user);
+            // send request
+
+            AuthService.register(user);
         }
-
-        
-
-       
     };
 
     return(

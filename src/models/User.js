@@ -42,4 +42,12 @@ export default class User {
     getResetToken = () => {
         return this.reset_token;
     }
+
+    createJsonObject = () => {
+        return {
+            username: this.username,
+            password: this.password,
+            email: this.email,
+        }
+    }
 }

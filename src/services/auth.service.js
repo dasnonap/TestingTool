@@ -2,10 +2,10 @@ import axios from "axios";
 import User from '../models/User';
 
 // Auth Service class 
-class AuthService {
+export default class AuthService {
     // API URL
     // To do set api url as an env variable
-    AUTH_URL  = 'http://localhost:3001/api/auth/';
+    static auth_url = 'http://localhost:3001/api/auth/';
 
     /**
      * Register user 
@@ -14,11 +14,22 @@ class AuthService {
      * @return {booleam} Returns the result of the operation
      */
     static register = user => {
-        if( typeof user !== User ) return;
-
-        if( ! user.email || ! user.password ) return; 
+        if( ! user instanceof User ) return;
         
-        return axios.post( AUTH_URL + 'signup', user );
+        if( ! user.getEmail() || ! user.getPassword() || ! user.getUsername() ) return;
+
+        let config = {
+            headers: {
+               'Content-Type': 'application/json',
+            } 
+       }
+
+        return axios.post( 
+            this.auth_url + 'signup',
+            {
+                user: user.createJsonObject()
+            },
+        config );
     }
 
      /**
@@ -33,7 +44,7 @@ class AuthService {
         if( ! user.email || ! user.password ) return;
 
         return axios
-            .post( AUTH_URL + 'signin', user )
+            .post( this.auth_url + 'signin', user )
             .then( (response) => {
                 if( response.data.accessToken ) 
                     localStorage.setItem( 'user', JSON.stringify( response.data ) );
