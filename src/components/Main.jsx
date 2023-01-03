@@ -1,16 +1,11 @@
 import React from "react";
-import Login from "./Layouts/Login";
-import Home from  './Layouts/Home';
-import Register from "./Layouts/Register";
 
-const Main = () => {
+const Main = (props) => {
     return (
-        <div className="main">
-           {/* <Home /> */}
-           <Login />
-           {/* <Register /> */}
+        <div className="main" id="main">
+           {props.children}
         </div>
     );
 };
 
-export default Main;
+export default Main;    

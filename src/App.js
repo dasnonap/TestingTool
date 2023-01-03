@@ -1,9 +1,11 @@
 import './App.scss';
-import Main from './components/Main';
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <Main />
+    <div className="main" id="main">
+        <Outlet /> 
+    </div>
   );
 }
 
