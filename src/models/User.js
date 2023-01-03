@@ -5,7 +5,7 @@ export default class User {
     email = '';
     reset_token = '';
 
-    constructor( username, password, email ){
+    constructor( username = null, password, email ){
         this.username = username;
         this.password = password;
         this.email = email;
@@ -43,9 +43,9 @@ export default class User {
         return this.reset_token;
     }
 
-    async createJsonObject () {
+    createJsonObject () {
         return {
-            username: this.username,
+            // username: this.username,
             password: this.password,
             email: this.email,
         }

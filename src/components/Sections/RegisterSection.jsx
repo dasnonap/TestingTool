@@ -12,7 +12,7 @@ const formFields = [
         id: 'email',
         validate : true,
         validationMessage: 'Please enter a valid email.',
-        placeholder: 'Email Address', // maybe label to do style fixes
+        placeholder: 'Email Address',
     },
     {
         type : 'text',

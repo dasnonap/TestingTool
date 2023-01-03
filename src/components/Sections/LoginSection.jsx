@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Shell from "../UI/Shell";
 import Form from "./Form";
-
+import User from "../../models/User";
+import AuthService from "../../services/auth.service";
 // NOTES:
 // Create new file for form fields creations
 // Create with Context API in Varna
@@ -11,7 +12,7 @@ const formFields = [
         id : 'email',
         validate : true,
         validationMessage: 'Please enter a valid email.',
-        placeholder: 'Email Address', // maybe label to do style fixes
+        placeholder: 'Email Address',
     },
     {
         type : 'password',
@@ -24,12 +25,38 @@ const formFields = [
 
 // Creates Login form component
 const Login = (props) => {
+    const [errorState, setErrorState] = useState('');
 
-    const handleLoginFormSubmit = (event) => {
-        // Handle form submmission
+    const handleLoginFormSubmit = async (event) => {
         event.preventDefault();
 
-        console.log(event);
+        const $form = event.target,
+              $inputs = $form.querySelectorAll('input[data-validate="true"]');
+        let data = {};
+
+        $inputs.forEach( async ( input, index ) => {
+            let value = input.value;
+
+            if ( ! value.length ){
+                setErrorState( input.dataset.message );
+            } else {
+                data[input.id] = value; 
+            }
+        });
+        
+        const user = new User( null, data.password, data.email );
+        console.log(user.createJsonObject());
+        // send request
+        try {
+            const response = await AuthService.login(user);
+
+            if( response.data && response.data.token.length > 0 ){
+                localStorage.setItem( 'user', response.data.token );
+            }    
+        } catch (error) {
+            if( error.response.status == 400 )
+                setErrorState( error.response.data.error );
+        }
     };
 
     return(
@@ -42,12 +69,16 @@ const Login = (props) => {
                 </div>
 
                 <div className="login__inner">
-
-                    <div className="login__message">
-                        <div className="error-message">
-                            <p></p>
+                    {/* Used for displaying errors */}
+                    { errorState ?
+                        <div className="register__message">
+                            <div className="error-message">
+                                <p>
+                                    {errorState}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    : '' }
 
                     <Form 
                         className="form form--login"

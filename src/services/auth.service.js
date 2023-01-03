@@ -13,44 +13,57 @@ export default class AuthService {
      * @param {User} Instance of the new User added
      * @return {boolea} Returns the result of the operation
      */
-    static async register( user ) {
+    static register( user ) {
         if( ! user instanceof User ) return;
         
-        if( ! user.getEmail() || ! user.getPassword() || ! user.getUsername() ) return;
+        if( 
+            ! user.getEmail() || 
+            ! user.getPassword() || 
+            ! user.getUsername() 
+        ) return;
 
         let config = {
             headers: {
                'Content-Type': 'application/json',
             } 
-       }
+        }
 
         return axios.post( 
             this.auth_url + 'signup',
             {
-                user: await user.createJsonObject()
+                'user': user.createJsonObject()
             },
-        config );
+            config
+        );
     }
 
-     /**
+     /**    
      * Login user 
      *
-     * @param {User} Instance of the User logged in
+     * @param {User} Instance of the User logged in     
      * @return {booleam} Returns the 
      */
-    static login = user => {
-        if( typeof user !== User ) return;
+    static async login ( user ) {
+        if( ! user instanceof User ) return;
 
-        if( ! user.email || ! user.password ) return;
+        if( 
+            ! user.getEmail() || 
+            ! user.getPassword() 
+        ) return;
 
-        return axios
-            .post( this.auth_url + 'signin', user )
-            .then( (response) => {
-                if( response.data.accessToken ) 
-                    localStorage.setItem( 'user', JSON.stringify( response.data ) );
-                
-                return response.data    
-            });
+        let config = {
+            headers: {
+               'Content-Type': 'application/json',
+            } 
+        }
+
+        return axios.post( 
+            this.auth_url + 'signin',
+            {
+                'user': user.createJsonObject()
+            },
+            config
+        );
     }
 
     /**
