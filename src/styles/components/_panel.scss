@@ -1,0 +1,25 @@
+// Panel Styles
+.panel{
+    height: 100%;
+    width: 100%;
+    margin: 40px 0;
+
+    .panel__inner{
+        display: flex;
+        flex-direction: row;
+        padding: 30px 50px;
+        margin: 0px -30px;
+    }
+
+    .panel__navigation{
+        background-color: $c-light-gray;
+        border-radius: 15px;
+        height: 100%;
+        padding: 15px 35px;
+        margin-right: 30px;
+    }
+
+    .panel__content{
+        margin-left: 30px;
+    }
+}

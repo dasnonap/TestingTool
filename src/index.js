@@ -5,12 +5,14 @@ import App from './App';
 import Login from "./components/Layouts/Login";
 import Register from "./components/Layouts/Register";
 import Home from "./components/Layouts/Home";
-import reportWebVitals from './reportWebVitals';
+import Dashboard from "./components/Layouts/Dashboard";
+import AuthService from './services/auth.service';
 import {
 	createBrowserRouter,
 	RouterProvider,
+	redirect,
 } from "react-router-dom";
-import Main from './components/Main';
+import Sites from './components/Layouts/Sites';
 
 const router =  new createBrowserRouter([
 	{
@@ -27,6 +29,28 @@ const router =  new createBrowserRouter([
 			{
 				path: '/signin',
 				element: <Login />,
+			},
+			{
+				path: '/dashboard',
+				element: <Dashboard />,
+				children: [
+					{
+						path: '/dashboard/sites',
+						element: <Sites />
+					}
+				],
+				loader: async () => {
+					const userToken = AuthService.getCurrentUser();
+					
+					if ( ! userToken ) {
+						return redirect("/signin");
+					}
+
+					if( ! AuthService.validateUser( userToken ) ){
+						return redirect( '/signin' );
+					}
+					return true;
+				}
 			}
 		]
 	},
@@ -34,13 +58,6 @@ const router =  new createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-		<Main>
-			<RouterProvider router={router} />
-		</Main>
+		<RouterProvider router={router} />
 	</React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

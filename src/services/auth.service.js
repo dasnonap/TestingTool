@@ -73,11 +73,34 @@ export default class AuthService {
         localStorage.removeItem("user");
     }
 
+     /**
+     * Validate User 
+     */
+     static validateUser = ( token ) => {
+        if( ! token )
+            return;
+        return true; // to do backend
+        let config = {
+            headers: {
+                'Content-Type': 'application/json',
+            } 
+        }
+
+        return axios.post(
+            this.auth_url + 'validate',
+            {
+                'token': token
+            },
+            config
+        )
+    }
+
+
     /**
      * Get current user
      */
     static getCurrentUser = () =>{
-        return JSON.parse(localStorage.getItem("user"));
+        return localStorage.getItem("user");
     }
 
     /**
