@@ -1,4 +1,5 @@
 import React from "react";
+import SiteListing from "../Sections/SiteListing";
 
 const Sites = (props) => {
     return (
@@ -8,6 +9,7 @@ const Sites = (props) => {
             </div>
 
             <div className="sites__inner">
+                <SiteListing />
             </div>
         </div>
     );

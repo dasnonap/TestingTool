@@ -10,10 +10,6 @@ const panelNavigation = [
         url: '/dashboard',
     },
     {
-        title: 'Tokens',
-        url: '/dashboard/tokens',
-    },
-    {
         title: 'Sites',
         url: '/dashboard/sites',
     },

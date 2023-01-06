@@ -113,7 +113,7 @@ export default class AuthService {
         if( ! user.length ) return;
 
         return {
-            'x-access-token': user.accessToken
+            'x-access-token': user
         };
     }
 }

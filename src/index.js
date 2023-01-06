@@ -7,6 +7,7 @@ import Register from "./components/Layouts/Register";
 import Home from "./components/Layouts/Home";
 import Dashboard from "./components/Layouts/Dashboard";
 import AuthService from './services/auth.service';
+import Results from './components/Sections/Results';
 import {
 	createBrowserRouter,
 	RouterProvider,
@@ -37,6 +38,10 @@ const router =  new createBrowserRouter([
 					{
 						path: '/dashboard/sites',
 						element: <Sites />
+					},
+					{
+						path: '/dashboard/results',
+						element: <Results />
 					}
 				],
 				loader: async () => {
