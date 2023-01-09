@@ -1,28 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import UserService from "../../services/user.service";
 
-const SiteListing = props => {
-    const [userSites, setUserSites] = useState();
+class SiteListing extends React.Component{
+    async getData() {
+        const res = await UserService.getUserSites();
+        return await res.data;
+    }
+    constructor(...args) {  
+        super(...args);
+        this.state = {data: null};
+    }
+    componentDidMount() {
+        if (!this.state.data) {
 
-    useEffect(async () => {
-        try {
-            const response = await UserService.getUserSites();
-            console.log( response );
-            setUserSites(response.data.sites);
-        } catch (error) {
-            if( error.response.status == 400 )
-                setUserSites();
+            this
+                .getData()
+                .then(data => this.setState({data}))
+            .catch(err => { /*...handle the error...*/});
         }
-    }, [])
-    
-    console.log(userSites);
-    return(
-        <div className="sites-listing">
-            <div className="listing__inner">
-                
+    }
+    render() {
+        return (
+             <div className="sites-listing">
+                <div className="listing__inner">
+                {
+                    this.state.data ? 
+                    <em>{this.state.data.test}</em> :
+                    this.state.data
+                }
+                </div>
             </div>
-        </div>
-    );
-};  
-
+        );
+    }
+}
 export default SiteListing;

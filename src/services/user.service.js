@@ -13,14 +13,14 @@ class UserService{
 
     // Get user sites
     static getUserSites = () => {
-        console.log( this.user_url + 'sites/overview');
+        
         let config = {
             headers: {
-               'Content-Type': 'application/json',
-               'X-Access-Token': AuthService.getCurrentUser(),
+               'Content-Type': 'application/x-www-form-urlencoded',      
+                Authorization: `Bearer ${AuthService.getCurrentUser()}`,
             } 
         }
-
+        
         return axios.get(
             this.user_url + 'sites/overview',
             {},
