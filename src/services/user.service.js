@@ -21,11 +21,32 @@ class UserService{
             } 
         }
         
-        return axios.get(
+        return axios.post   (
             this.user_url + 'sites/overview',
             {},
             config
         )
+    }
+
+    // Add site
+    static importSite = ( site ) => {
+        if( ! site )
+            return;
+
+        let config = {
+            headers: {
+                'Content-Type' : 'application/json',
+                Authorization: `Bearer ${AuthService.getCurrentUser()}`,
+            }
+        };
+
+        return axios.post(
+            this.user_url + 'sites/add',
+            {
+                'site': site.createJsonObject()
+            },
+            config
+        );
     }
 }
 

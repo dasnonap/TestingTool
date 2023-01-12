@@ -1,0 +1,26 @@
+// Sites Listing
+.sites-listing{
+    .listing__inner{
+        padding: 10px 40px;
+    }
+
+    .listing__notice{
+        padding: 40px 0;
+        
+        h4{
+            margin-bottom: 10px;
+        }
+    }
+
+    .listing__form{
+        background-color: $c-dark-blue;
+        color: $c-white;
+        padding: 30px 10px;
+        text-align: center;
+        border-radius: 30px;
+        
+        .form{
+            text-align: center;
+        }
+    }
+}

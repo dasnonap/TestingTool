@@ -5,7 +5,6 @@ import User from "../../models/User";
 import AuthService from "../../services/auth.service";
 
 // Create new file for form fields creations
-// Create with Context API in Varna
 const formFields = [
     {   
         type : 'email',
