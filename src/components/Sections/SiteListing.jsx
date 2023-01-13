@@ -5,6 +5,7 @@ import Button from "../UI/Button";
 import Wrapper from '../UI/Wrapper';
 import Form from '../Sections/Form';
 import Site from '../../models/Site';
+import SiteTabs from '../Sections/SiteTabs';
 
 class SiteListing extends React.Component{
     async getData() {
@@ -18,6 +19,7 @@ class SiteListing extends React.Component{
         this.state = {openPopup: null};
     }
 
+    // Load user sites when component is mounted
     componentDidMount() {
         if (!this.state.data) {
 
@@ -33,7 +35,7 @@ class SiteListing extends React.Component{
             } );
         }
     }
-
+    
     //Open popup - site addition
     handleOpenPopup( event ) {
         event.preventDefault();
@@ -43,7 +45,7 @@ class SiteListing extends React.Component{
     // Handle Add site form submit 
     async handleSitesFormSubmit(event) {
         event.preventDefault();
-        
+    
         const $form = event.target,
               $inputs = $form.querySelectorAll('input[data-validate="true"]');
         let data = {};
@@ -60,17 +62,14 @@ class SiteListing extends React.Component{
             const site = new Site( data.url );
 
             try {
-                const response = await UserService.importSite( site );
+                await UserService.importSite( site );
 
-                console.log( response );
+                redirect( '/dashboard/sites' );
             } catch (error) {
                 if( error.response.status == 400 )
                     redirect( '/dashboard' );
             }
-           
-
         }
-        console.log(data);
     }
 
     render() {
@@ -83,19 +82,23 @@ class SiteListing extends React.Component{
                 placeholder: 'URL Address',
             },
         ];
+
         return (
             <div className="sites-listing">
                 {
-                    this.state.data && this.state.data.sites ? 
+                    this.state.data && this.state.data.sites ?
+
                     <div className="listing__inner">
-                        <em>{this.state.data.test}</em>
+                        <SiteTabs
+                            sites={this.state.data.sites}
+                        />
                     </div>
-                    : 
-                    
+                    : ''
+                }
+
+                {
                     <Wrapper>
                         <div className="listing__notice">
-                            <h4>No sites found!</h4>
-
                             <Button
                                 className="btn"
                                 onClick={this.handleOpenPopup.bind(this)}
@@ -105,14 +108,14 @@ class SiteListing extends React.Component{
                         </div>
 
                         {this.state.openPopup ? 
-                             <div className="listing__form">
+                            <div className="listing__form">
                                 <h4>Add your site</h4>
 
                                 <Form
                                     className="form form--site"
                                     method="POST"
                                     action="?"
-                                    onSubmit={this.handleSitesFormSubmit.bind(this)}
+                                    onSubmit={this.handleSitesFormSubmit}
                                     submitLabel='Add site'
                                     fields={siteFormFields}
                                 />
