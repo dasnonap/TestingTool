@@ -20,9 +20,13 @@ class SiteTabs extends React.Component{
             const test = new Test( site_id );
 
             try {
-                await UserService.createTest( test );
+                UserService.createTest( test )
+                    .then( response => {
 
-                redirect( '/dashboard/results' );
+                        redirect( '/dashboard/results' );
+                    });
+
+                
             } catch (error) {
                 if( error.response.status == 400 )
                     redirect( '/dashboard' );

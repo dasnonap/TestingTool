@@ -69,7 +69,7 @@ class SiteListing extends React.Component{
                 if( error.response.status == 400 )
                     redirect( '/dashboard' );
             }
-        }
+        }   
     }
 
     render() {
