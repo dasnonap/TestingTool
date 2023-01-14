@@ -7,7 +7,7 @@ import Register from "./components/Layouts/Register";
 import Home from "./components/Layouts/Home";
 import Dashboard from "./components/Layouts/Dashboard";
 import AuthService from './services/auth.service';
-import Results from './components/Sections/Results';
+import Results from './components/Layouts/Results';
 import {
 	createBrowserRouter,
 	RouterProvider,

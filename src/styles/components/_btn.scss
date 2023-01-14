@@ -16,4 +16,16 @@
         color: $c-dark-blue;
         border-radius: 10px;
     }
+
+    &.btn--alt{
+        background-color: $c-dark-gray;
+        color: $c-purple-gray;
+
+        &:hover{
+            background-color: $c-dark-gray;
+            color: $c-purple-gray;
+            border-radius: 10px;
+        }
+    }
 }
+

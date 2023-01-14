@@ -8,31 +8,30 @@ import Site from '../../models/Site';
 import SiteTabs from '../Sections/SiteTabs';
 
 class SiteListing extends React.Component{
-    async getData() {
-        const res = await UserService.getUserSites();
-        return await res.data;
-    }
-
     constructor(...args) {  
         super(...args);
         this.state = {data: null};
         this.state = {openPopup: null};
     }
 
+    // Request user site info
+    async getData() {
+        const res = await UserService.getUserSites();
+        return await res.data;
+    }
+
     // Load user sites when component is mounted
     componentDidMount() {
         if (!this.state.data) {
-
             this
                 .getData()
                 .then( data => this.setState( {data}  ) )
-            .catch(err => {
-                if( err.response.status === 400 ){
-                    localStorage.removeItem("user");
-                    return redirect("/");
-                }
-                    
-            } );
+                .catch(err => {
+                    if( err.response.status === 400 ){
+                        localStorage.removeItem("user");
+                        return redirect("/");
+                    }
+                } );
         }
     }
     

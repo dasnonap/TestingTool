@@ -10,14 +10,17 @@ class Site {
         this.sitemap = url;
     }
 
+    // Set Sitemap
     setSitemap = ( url ) => {
         this.sitemap = url;
     }
 
+    // Get Sitemap
     getSitemap = () => {
         return this.sitemap
     }
 
+    // Create Json Object 
     createJsonObject = () => {
         return {
             sitemap: this.sitemap,

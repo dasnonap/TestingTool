@@ -38,7 +38,6 @@ class SiteTabs extends React.Component{
         return (
             <div className="tabs">
                 <div className="tabs__items">
-                    {console.log(this.props.sites)}
                     {this.props.sites.map( (site)=>{
                         return(
                             <Tab

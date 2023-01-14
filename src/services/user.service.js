@@ -13,7 +13,6 @@ class UserService{
 
     // Get user sites
     static getUserSites = () => {
-        
         let config = {
             headers: {
                'Content-Type': 'application/x-www-form-urlencoded',      
@@ -49,6 +48,7 @@ class UserService{
         );
     }
 
+    // Test Site
     static createTest = ( test ) => {
         if( ! test )
             return;
@@ -67,6 +67,22 @@ class UserService{
             },
             config
         );
+    }
+
+    // Get User test results
+    static getUserTestResults = () => {
+        let config = {
+            headers: {
+               'Content-Type': 'application/x-www-form-urlencoded',      
+                Authorization: `Bearer ${AuthService.getCurrentUser()}`,
+            } 
+        }
+        
+        return axios.post   (
+            this.user_url + 'results/overview',
+            {},
+            config
+        )
     }
 }
 

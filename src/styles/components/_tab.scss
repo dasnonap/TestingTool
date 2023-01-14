@@ -1,14 +1,14 @@
 // Tab
 .tab{
     background-color: $c-light-gray;
-    border: 1px solid $c-dark-gray;
+    border: 1px solid $c-dark-blue;
     border-radius: 15px;
     padding: 20px 40px; 
 
     .tab__rows{
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 40px;
         margin-bottom: 20px;
     }
 
@@ -21,15 +21,72 @@
 
     .tab__content{
         width: 50%;
-        word-break: break-all;
+        word-break: break-word;
+        background-color: $c-purple-gray;
+        color: $c-dark-blue;
+        padding: 30px;
+        border-radius: 20px;
 
-        h3{
-            margin-bottom: 10px;
-            font-size: 24px;
+        .content__head{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: middle;
         }
 
-        a{
-            color:$c-blue;
+        .content__inner{
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+            transition: visibility 0s, opacity 0.3s, height .5s ease-out;
+            padding: 20px 0;
+
+            h3{
+                margin-bottom: 10px;
+                font-size: 24px;
+            }
+    
+            a{
+                color:$c-blue;
+            }
+            
+            p{
+                color: $c-dark-blue;
+            }
+
+            &.content__inner--alt{
+                h3{
+                    font-size: 16px;
+                    margin: unset;
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                }
+                
+                br{
+                    display: none;
+                }
+
+                p{
+                    margin-bottom: 5px;
+                }
+
+                hr{
+                    margin: 20px 0;
+                }
+            }
+        }
+
+        &.tab__content--expanded{
+            .content__inner{
+                visibility: visible;
+                opacity: 1;
+                height: auto;
+            }
+        }
+
+        .tab__image{
+            height: 400px;
+            width: 100%;
         }
     }
 }
