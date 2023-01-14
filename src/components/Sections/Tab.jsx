@@ -22,10 +22,16 @@ const Tab = (props) => {
                         <h3>URL</h3>
 
                         { site.sitemap ?
-                            <a href={site.sitemap} target="_blank">{site.sitemap}</a>
+                            <a 
+                                href={site.sitemap} 
+                                target="_blank"
+                                rel="noreferrer"
+                                >
+                                    {site.sitemap}
+                            </a>
                         : '' }
                     </div>
-                </div>
+                </div>  
 
                 <div className="tab__row">
                     <div className="tab__content">
@@ -49,7 +55,7 @@ const Tab = (props) => {
             <div className="tab__actions">
                 <a 
                     href="#" 
-                    data-site-id={site.id} 
+                    data-site={site.id} 
                     onClick={props.onButtonClickBegin}
                     className="btn"
                     >

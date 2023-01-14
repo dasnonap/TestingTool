@@ -48,6 +48,26 @@ class UserService{
             config
         );
     }
+
+    static createTest = ( test ) => {
+        if( ! test )
+            return;
+
+        let config = {
+            headers: {
+                'Content-Type' : 'application/json',
+                Authorization: `Bearer ${AuthService.getCurrentUser()}`,
+            }
+        };
+        
+        return axios.post(
+            this.user_url + 'tests/create',
+            {
+                'test': test.createJsonObject()
+            },
+            config
+        );
+    }
 }
 
 export default UserService;
