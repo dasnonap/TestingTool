@@ -3,9 +3,9 @@ import Shell from "../UI/Shell";
 import Form from "./Form";
 import User from "../../models/User";
 import AuthService from "../../services/auth.service";
-// NOTES:
+import { useNavigate, Link } from "react-router-dom";
+
 // Create new file for form fields creations
-// Create with Context API in Varna
 const formFields = [
     {   
         type : 'email',
@@ -26,6 +26,7 @@ const formFields = [
 // Creates Login form component
 const Login = (props) => {
     const [errorState, setErrorState] = useState('');
+    const navigate = useNavigate();
 
     const handleLoginFormSubmit = async (event) => {
         event.preventDefault();
@@ -45,13 +46,14 @@ const Login = (props) => {
         });
         
         const user = new User( null, data.password, data.email );
-        console.log(user.createJsonObject());
+
         // send request
         try {
             const response = await AuthService.login(user);
 
             if( response.data && response.data.token.length > 0 ){
                 localStorage.setItem( 'user', response.data.token );
+                navigate( '/dashboard' );
             }    
         } catch (error) {
             if( error.response.status == 400 )
@@ -91,7 +93,7 @@ const Login = (props) => {
                 </div>
 
                 <div className="login__footer">
-                    <p>You do not have an account? Sign up <a href="/sign-up">here</a></p>
+                    <p>You do not have an account? Sign up <Link to="/signup">here</Link></p>
                 </div>
             </Shell>
         </section>

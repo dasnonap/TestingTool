@@ -1,6 +1,11 @@
 import React from "react";
 import Shell from "../UI/Shell";
 import Step from "./Step";
+import step_1 from '../../images/step-1.png';
+import step_2 from '../../images/step-2.png';
+import step_3 from '../../images/step-3.png';
+import step_4 from '../../images/step-4.png';
+import step_5 from '../../images/step-5.png';
 
 const steps = [
     {
@@ -11,34 +16,31 @@ const steps = [
             'The service is completely free of charge and no payments are required for creating your account.',
         ],
         button: {
-            'link' : 'sign-up',
+            'link' : 'signup',
             'text': ' Create an Account',
         },
-        aside_image: 'https://via.placeholder.com/450X500',
+        aside_image: step_1,
     },
     {
-        title: '2. Generate API Key',
+        title: '2. Open your dashboard',
         content: [
-            'After logging into the system. Navigate to the Keys section.',
-            "Then after add your sites' URL and simply Generate a new API key.",
+            'After logging into the system. Navigate to the Sites section.',
         ],
-        aside_image: 'https://via.placeholder.com/450X500'
+        aside_image: step_2
     },
     {
-        title: ' 3. Upload the file',
+        title: ' 3. Add your site',
         content: [
-            'After generating the key, you will need to upload the provided file to your web server.',
-            'This step is required in order for the functionality to work.',
+            'After opening your dashboard, you can add your site.'
         ],
-        aside_image: 'https://via.placeholder.com/450X500',
+        aside_image: step_3,
     },
     {
         title: '4. Start the Test',
         content: [
-            'After uploading the file, you can begin testing!',
-            'Navigate the tab Test, and choose which test would you like to be performed.'
+            'Begin testing!'
         ],
-        aside_image: 'https://via.placeholder.com/450X500',
+        aside_image: step_4,
     },
     {
         title: '5. Evaluate the test',
@@ -46,7 +48,7 @@ const steps = [
             'After the tests are complete, a new report will be created.',
             'In the report you will find all of the information regarding your tests',
         ],
-        aside_image: 'https://via.placeholder.com/450X500',
+        aside_image: step_5,
     }
 ];
 

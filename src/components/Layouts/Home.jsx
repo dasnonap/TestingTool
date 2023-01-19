@@ -8,41 +8,33 @@ import Steps from "../Sections/Steps";
 let left_side_menu = [
     {   
         'title' : 'Home',
-        'url'   : '#home',
-    },
-    {
-        'title' : 'About',
-        'url'   : '#about',
+        'url'   : '/',
     }
 ];
 
 let right_side_menu = [
     {   
         'title' : 'Sign In',
-        'url'   : 'sign_in',
+        'url'   : 'signin',
     },
     {   
         'title' : 'Sign Up',
-        'url'   : 'sign_up'
+        'url'   : 'signup'
     }
 ];
 
 let footer_menu_items = [
     {   
         'title' : 'Home',
-        'url'   : '#home',
-    },
-    {
-        'title' : 'About',
-        'url'   : '#about',
+        'url'   : '/',
     },
     {   
         'title' : 'Sign In',
-        'url'   : 'sign_in',
+        'url'   : 'signin',
     },
     {   
         'title' : 'Sign Up',
-        'url'   : 'sign_up'
+        'url'   : 'signup'
     }
 ];
 

@@ -3,6 +3,7 @@ import Shell from "../UI/Shell";
 import Form from "./Form";
 import User from "../../models/User";
 import AuthService from "../../services/auth.service";
+import { useNavigate, Link } from "react-router-dom";
 
 // Create new file for form fields creations
 const formFields = [
@@ -38,6 +39,7 @@ const formFields = [
 
 const RegisterSection = (props) =>{
     const [errorState, setErrorState] = useState('');
+    const navigate = useNavigate();
 
     // Handle form submmission
     const handleRegisterSubmit = async (event) => {
@@ -69,6 +71,7 @@ const RegisterSection = (props) =>{
 
                 if( response.data && response.data.token.length > 0 ){
                     localStorage.setItem( 'user', JSON.stringify( response.data.token ) );
+                    navigate( '/dashboard' );
                 }    
             } catch (error) {
                 if( error.response.status == 400 )
@@ -109,7 +112,7 @@ const RegisterSection = (props) =>{
                 </div>
 
                 <div className="register__footer">
-                    <p>Already have an account? Sign in <a href="/sign-in">here</a></p>
+                    <p>Already have an account? Sign in <Link to="/signin">here</Link></p>
                 </div>
             </Shell>
         </section>

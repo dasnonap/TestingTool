@@ -1,6 +1,7 @@
 import React from "react";
 import Shell from "../UI/Shell";
 import hero_image from '../../images/hero-alt.png'
+import { Link } from "react-router-dom";
 
 const Hero = () => {
     return (
@@ -24,11 +25,11 @@ const Hero = () => {
                     </div>
 
                     <div className="hero__actions">
-                        <a href="#sign-in" className="btn">Sign In</a>
+                        <Link to="/signin" className="btn">Sign In</Link>
                         
                         <p>OR</p>
 
-                        <a href="#sign-up" className="btn">Create an Account</a>
+                        <Link to="/signup" className="btn">Create an Account</Link>
                     </div>
                 </div>
 

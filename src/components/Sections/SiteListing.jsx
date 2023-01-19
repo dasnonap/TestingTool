@@ -12,6 +12,7 @@ class SiteListing extends React.Component{
         super(...args);
         this.state = {data: null};
         this.state = {openPopup: null};
+        this.state = {error: null};
     }
 
     // Request user site info
@@ -29,7 +30,7 @@ class SiteListing extends React.Component{
                 .catch(err => {
                     if( err.response.status === 400 ){
                         localStorage.removeItem("user");
-                        return redirect("/");
+                        window.location.reload();
                     }
                 } );
         }
@@ -61,12 +62,16 @@ class SiteListing extends React.Component{
             const site = new Site( data.url );
 
             try {
-                await UserService.importSite( site );
+                const response = await UserService.importSite( site );
 
-                redirect( '/dashboard/sites' );
+                if( response.data && response.data.success  ){
+                    this    
+                        .getData()
+                        .then( data => this.setState( {data}  ) )
+                }    
             } catch (error) {
                 if( error.response.status == 400 )
-                    redirect( '/dashboard' );
+                    this.setState( { error : error.response.data.error } )
             }
         }   
     }
@@ -81,7 +86,6 @@ class SiteListing extends React.Component{
                 placeholder: 'URL Address',
             },
         ];
-
         return (
             <div className="sites-listing">
                 {
@@ -110,11 +114,19 @@ class SiteListing extends React.Component{
                             <div className="listing__form">
                                 <h4>Add your site</h4>
 
+                                { this.state.error ?
+                                    <div className="error-message">
+                                        <p>
+                                            {this.state.error}
+                                        </p>
+                                    </div>
+                                : '' }
+
                                 <Form
                                     className="form form--site"
                                     method="POST"
                                     action="?"
-                                    onSubmit={this.handleSitesFormSubmit}
+                                    onSubmit={this.handleSitesFormSubmit.bind(this)}
                                     submitLabel='Add site'
                                     fields={siteFormFields}
                                 />
